@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B334A84238EDEDC00F81058 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BF58EB7238EDDFF00BF7612 /* Resources */; };
+		1B334A88238FCB4200F81058 /* SplashState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B334A86238FCB4200F81058 /* SplashState.cpp */; };
 		1B6B1E93238E632600A22AA3 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B1E91238E632600A22AA3 /* AssetManager.cpp */; };
 		1B6B1E96238E689100A22AA3 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B1E94238E689100A22AA3 /* InputManager.cpp */; };
 		1B82C92F238C2F5400CBCD30 /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B82C92D238C2F5400CBCD30 /* StateMachine.cpp */; };
@@ -20,6 +22,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1B334A83238EDEC500F81058 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				1B334A84238EDEDC00F81058 /* Resources in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1BFBF851237906E3007DA785 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -32,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B334A85238FC58700F81058 /* DEFINITIONS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DEFINITIONS.hpp; sourceTree = "<group>"; };
+		1B334A86238FCB4200F81058 /* SplashState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashState.cpp; sourceTree = "<group>"; };
+		1B334A87238FCB4200F81058 /* SplashState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SplashState.hpp; sourceTree = "<group>"; };
 		1B6B1E91238E632600A22AA3 /* AssetManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AssetManager.cpp; sourceTree = "<group>"; };
 		1B6B1E92238E632600A22AA3 /* AssetManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AssetManager.hpp; sourceTree = "<group>"; };
 		1B6B1E94238E689100A22AA3 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
@@ -41,6 +56,7 @@
 		1B82C92E238C2F5400CBCD30 /* StateMachine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StateMachine.hpp; sourceTree = "<group>"; };
 		1BF58E65238ECA4500BF7612 /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		1BF58E66238ECA4500BF7612 /* Game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
+		1BF58EB7238EDDFF00BF7612 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		1BFBF853237906E3007DA785 /* SFML Template */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SFML Template"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BFBF856237906E3007DA785 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1BFBF85E23794F74007DA785 /* libsfml-audio.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.5.1.dylib"; path = "../../External Libraries/SFML/lib/libsfml-audio.2.5.1.dylib"; sourceTree = "<group>"; };
@@ -86,6 +102,7 @@
 		1BFBF855237906E3007DA785 /* SFML Template */ = {
 			isa = PBXGroup;
 			children = (
+				1BF58EB7238EDDFF00BF7612 /* Resources */,
 				1BFBF856237906E3007DA785 /* main.cpp */,
 				1B82C92C238C2E3500CBCD30 /* State.hpp */,
 				1B82C92D238C2F5400CBCD30 /* StateMachine.cpp */,
@@ -96,6 +113,9 @@
 				1B6B1E95238E689100A22AA3 /* InputManager.hpp */,
 				1BF58E65238ECA4500BF7612 /* Game.cpp */,
 				1BF58E66238ECA4500BF7612 /* Game.hpp */,
+				1B334A85238FC58700F81058 /* DEFINITIONS.hpp */,
+				1B334A86238FCB4200F81058 /* SplashState.cpp */,
+				1B334A87238FCB4200F81058 /* SplashState.hpp */,
 			);
 			path = "SFML Template";
 			sourceTree = "<group>";
@@ -122,6 +142,7 @@
 				1BFBF84F237906E3007DA785 /* Sources */,
 				1BFBF850237906E3007DA785 /* Frameworks */,
 				1BFBF851237906E3007DA785 /* CopyFiles */,
+				1B334A83238EDEC500F81058 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -171,6 +192,7 @@
 			files = (
 				1B6B1E96238E689100A22AA3 /* InputManager.cpp in Sources */,
 				1B6B1E93238E632600A22AA3 /* AssetManager.cpp in Sources */,
+				1B334A88238FCB4200F81058 /* SplashState.cpp in Sources */,
 				1BFBF857237906E3007DA785 /* main.cpp in Sources */,
 				1B82C92F238C2F5400CBCD30 /* StateMachine.cpp in Sources */,
 				1BF58E67238ECA4500BF7612 /* Game.cpp in Sources */,

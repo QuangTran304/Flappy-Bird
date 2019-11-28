@@ -7,10 +7,12 @@
 //
 
 #include "Game.hpp"
+#include "SplashState.hpp"
 
 namespace QT {
     Game::Game(int width, int height, std::string title ) {
         _data->window.create( sf::VideoMode( width, height ), title, sf::Style::Close | sf::Style::Titlebar );
+        _data->machine.addState( StateRef(new SplashState(this->_data)) );
         
         this->run();
     }
