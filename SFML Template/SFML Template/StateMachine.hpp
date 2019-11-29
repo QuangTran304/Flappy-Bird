@@ -12,7 +12,7 @@
 #include "State.hpp"
 
 namespace QT {
-    typedef std::unique_ptr<State> StateRef;
+    using StateRef = std::unique_ptr<State>;
 
     class StateMachine {
     public:

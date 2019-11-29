@@ -9,7 +9,7 @@
 #include <sstream>
 #include "SplashState.hpp"
 #include "DEFINITIONS.hpp"
-
+#include "MainMenuState.hpp"
 #include <iostream>
 
 namespace QT {
@@ -38,7 +38,7 @@ namespace QT {
 
     void SplashState::update( float dt ) {
         if ( _clock.getElapsedTime().asSeconds()  >  SPLASH_STATE_SHOW_TIME ) {
-            std::cout << "Go to Main Menu" << std::endl;
+            _data->machine.addState( StateRef( new MainMenuState( _data )), true );
         }
     }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B334A84238EDEDC00F81058 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BF58EB7238EDDFF00BF7612 /* Resources */; };
 		1B334A88238FCB4200F81058 /* SplashState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B334A86238FCB4200F81058 /* SplashState.cpp */; };
+		1B334A8B23902B0C00F81058 /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B334A8923902B0C00F81058 /* MainMenuState.cpp */; };
 		1B6B1E93238E632600A22AA3 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B1E91238E632600A22AA3 /* AssetManager.cpp */; };
 		1B6B1E96238E689100A22AA3 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B1E94238E689100A22AA3 /* InputManager.cpp */; };
 		1B82C92F238C2F5400CBCD30 /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B82C92D238C2F5400CBCD30 /* StateMachine.cpp */; };
@@ -44,9 +45,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1B334A85238FC58700F81058 /* DEFINITIONS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DEFINITIONS.hpp; sourceTree = "<group>"; };
 		1B334A86238FCB4200F81058 /* SplashState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashState.cpp; sourceTree = "<group>"; };
 		1B334A87238FCB4200F81058 /* SplashState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SplashState.hpp; sourceTree = "<group>"; };
+		1B334A8923902B0C00F81058 /* MainMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuState.cpp; sourceTree = "<group>"; };
+		1B334A8A23902B0C00F81058 /* MainMenuState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainMenuState.hpp; sourceTree = "<group>"; };
+		1B334A8C23902C5C00F81058 /* DEFINITIONS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DEFINITIONS.hpp; sourceTree = "<group>"; };
 		1B6B1E91238E632600A22AA3 /* AssetManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AssetManager.cpp; sourceTree = "<group>"; };
 		1B6B1E92238E632600A22AA3 /* AssetManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AssetManager.hpp; sourceTree = "<group>"; };
 		1B6B1E94238E689100A22AA3 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
@@ -113,9 +116,11 @@
 				1B6B1E95238E689100A22AA3 /* InputManager.hpp */,
 				1BF58E65238ECA4500BF7612 /* Game.cpp */,
 				1BF58E66238ECA4500BF7612 /* Game.hpp */,
-				1B334A85238FC58700F81058 /* DEFINITIONS.hpp */,
 				1B334A86238FCB4200F81058 /* SplashState.cpp */,
 				1B334A87238FCB4200F81058 /* SplashState.hpp */,
+				1B334A8923902B0C00F81058 /* MainMenuState.cpp */,
+				1B334A8A23902B0C00F81058 /* MainMenuState.hpp */,
+				1B334A8C23902C5C00F81058 /* DEFINITIONS.hpp */,
 			);
 			path = "SFML Template";
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B334A8B23902B0C00F81058 /* MainMenuState.cpp in Sources */,
 				1B6B1E96238E689100A22AA3 /* InputManager.cpp in Sources */,
 				1B6B1E93238E632600A22AA3 /* AssetManager.cpp in Sources */,
 				1B334A88238FCB4200F81058 /* SplashState.cpp in Sources */,

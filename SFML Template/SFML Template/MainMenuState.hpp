@@ -1,5 +1,5 @@
 //
-//  SplashState.hpp
+//  MainMenuState.hpp
 //  SFML Template
 //
 //  Created by Quang Tran on 2019-11-28.
@@ -13,10 +13,10 @@
 #include "Game.hpp"
 
 namespace QT {
-    class SplashState: public State {
+
+    class MainMenuState: public State {
     public:
-        SplashState( GameDataRef data );
-        
+        MainMenuState( GameDataRef data );
         void init();
         void handleInput();
         void update( float dt );
@@ -24,8 +24,8 @@ namespace QT {
         
     private:
         GameDataRef _data;
-        sf::Clock _clock;
         sf::Sprite _background;
-        
+        sf::Sprite _title;
+        sf::Sprite _playButton;
     };
 }
