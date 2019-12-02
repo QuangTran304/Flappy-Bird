@@ -22,6 +22,7 @@
 		1BFBF86723794F95007DA785 /* libsfml-graphics.2.5.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFBF86323794F95007DA785 /* libsfml-graphics.2.5.1.dylib */; };
 		1BFEF53223950D78009411D3 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEF53023950D78009411D3 /* GameState.cpp */; };
 		1BFEF53823951177009411D3 /* GameOverState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEF53623951177009411D3 /* GameOverState.cpp */; };
+		1BFEF53B239513B1009411D3 /* Pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEF539239513B1009411D3 /* Pipe.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +74,8 @@
 		1BFEF53123950D78009411D3 /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
 		1BFEF53623951177009411D3 /* GameOverState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverState.cpp; sourceTree = "<group>"; };
 		1BFEF53723951177009411D3 /* GameOverState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOverState.hpp; sourceTree = "<group>"; };
+		1BFEF539239513B1009411D3 /* Pipe.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pipe.cpp; sourceTree = "<group>"; };
+		1BFEF53A239513B1009411D3 /* Pipe.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pipe.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				1BFEF53123950D78009411D3 /* GameState.hpp */,
 				1BFEF53623951177009411D3 /* GameOverState.cpp */,
 				1BFEF53723951177009411D3 /* GameOverState.hpp */,
+				1BFEF539239513B1009411D3 /* Pipe.cpp */,
+				1BFEF53A239513B1009411D3 /* Pipe.hpp */,
 			);
 			path = "SFML Template";
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				1BFBF857237906E3007DA785 /* main.cpp in Sources */,
 				1B82C92F238C2F5400CBCD30 /* StateMachine.cpp in Sources */,
 				1BF58E67238ECA4500BF7612 /* Game.cpp in Sources */,
+				1BFEF53B239513B1009411D3 /* Pipe.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
