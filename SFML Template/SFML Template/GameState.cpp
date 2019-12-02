@@ -38,17 +38,24 @@ namespace QT {
             if ( sf::Event::Closed == event.type ) {
                 _data->window.close();
             }
+            
+            // If user clicks on the sprite, ...
+            if ( _data->input.isSpriteClicked( _background, sf::Mouse::Left, _data->window ) ) {
+                pipe->spawnInvisiblePipe();
+                pipe->spawnBottomPipe();
+                pipe->spawnTopPipe();
+            }
         }
     }
 
     void GameState::update( float dt ) {
-
+        pipe->movePipes( dt );
     }
 
     void GameState::draw( float dt ) {
         _data->window.clear();
         _data->window.draw( _background );
-        pipe->DrawPipes();          // Draw pipes after drawing the background
+        pipe->drawPipes();          // Draw pipes after drawing the background
         _data->window.display();
     }
 }
