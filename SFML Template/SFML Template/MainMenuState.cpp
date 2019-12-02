@@ -9,6 +9,7 @@
 #include <sstream>
 #include "DEFINITIONS.hpp"
 #include "MainMenuState.hpp"
+#include "GameState.hpp"
 #include <iostream>
 
 namespace QT {
@@ -48,6 +49,7 @@ namespace QT {
             // If user clicks on the sprite (i.e. the Play button), go to game screen
             if ( _data->input.isSpriteClicked( _playButton, sf::Mouse::Left, _data->window ) ) {
                 std::cout << "Go to Game Screen" << std::endl;
+                _data->machine.addState( StateRef( new GameState( _data )), true );
             }
         }
     }

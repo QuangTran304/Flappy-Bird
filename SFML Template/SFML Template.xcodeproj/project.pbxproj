@@ -20,6 +20,7 @@
 		1BFBF86523794F95007DA785 /* libsfml-network.2.5.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFBF86123794F95007DA785 /* libsfml-network.2.5.1.dylib */; };
 		1BFBF86623794F95007DA785 /* libsfml-window.2.5.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFBF86223794F95007DA785 /* libsfml-window.2.5.1.dylib */; };
 		1BFBF86723794F95007DA785 /* libsfml-graphics.2.5.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFBF86323794F95007DA785 /* libsfml-graphics.2.5.1.dylib */; };
+		1BFEF53223950D78009411D3 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEF53023950D78009411D3 /* GameState.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +68,8 @@
 		1BFBF86123794F95007DA785 /* libsfml-network.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.5.1.dylib"; path = "../../External Libraries/SFML/lib/libsfml-network.2.5.1.dylib"; sourceTree = "<group>"; };
 		1BFBF86223794F95007DA785 /* libsfml-window.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.5.1.dylib"; path = "../../External Libraries/SFML/lib/libsfml-window.2.5.1.dylib"; sourceTree = "<group>"; };
 		1BFBF86323794F95007DA785 /* libsfml-graphics.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.5.1.dylib"; path = "../../External Libraries/SFML/lib/libsfml-graphics.2.5.1.dylib"; sourceTree = "<group>"; };
+		1BFEF53023950D78009411D3 /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
+		1BFEF53123950D78009411D3 /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 				1B82C92E238C2F5400CBCD30 /* StateMachine.hpp */,
 				1B6B1E91238E632600A22AA3 /* AssetManager.cpp */,
 				1B6B1E92238E632600A22AA3 /* AssetManager.hpp */,
+				1B334A8C23902C5C00F81058 /* DEFINITIONS.hpp */,
 				1B6B1E94238E689100A22AA3 /* InputManager.cpp */,
 				1B6B1E95238E689100A22AA3 /* InputManager.hpp */,
 				1BF58E65238ECA4500BF7612 /* Game.cpp */,
@@ -120,7 +124,8 @@
 				1B334A87238FCB4200F81058 /* SplashState.hpp */,
 				1B334A8923902B0C00F81058 /* MainMenuState.cpp */,
 				1B334A8A23902B0C00F81058 /* MainMenuState.hpp */,
-				1B334A8C23902C5C00F81058 /* DEFINITIONS.hpp */,
+				1BFEF53023950D78009411D3 /* GameState.cpp */,
+				1BFEF53123950D78009411D3 /* GameState.hpp */,
 			);
 			path = "SFML Template";
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B334A8B23902B0C00F81058 /* MainMenuState.cpp in Sources */,
+				1BFEF53223950D78009411D3 /* GameState.cpp in Sources */,
 				1B6B1E96238E689100A22AA3 /* InputManager.cpp in Sources */,
 				1B6B1E93238E632600A22AA3 /* AssetManager.cpp in Sources */,
 				1B334A88238FCB4200F81058 /* SplashState.cpp in Sources */,
