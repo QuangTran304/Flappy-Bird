@@ -18,7 +18,8 @@ namespace QT {
         
     }
 
-    // Loading the texture using AssetManager
+
+    // Loading the textures using AssetManager then set them accordingly with the MainMenu components (i.e. background, title, playButton)
     void MainMenuState::init() {
         _data->assets.loadTexture( "Main Menu Background", MAIN_MENU_BACKGROUND_FILEPATH );
         _data->assets.loadTexture( "Game Title", GAME_TITLE_FILEPATH );
@@ -33,16 +34,17 @@ namespace QT {
         
         // Set the x,y positions of the Play button: all the formulas do just that.
         _playButton.setPosition( (SCREEN_WIDTH / 2) - (_playButton.getGlobalBounds().width / 2), (SCREEN_HEIGHT / 2) - (_playButton.getGlobalBounds().height / 2) );
-        
     }
+
 
     void MainMenuState::handleInput() {
         sf::Event event;
         
-        while ( _data->window.pollEvent( event )) {
+        // Accquire the top event from Event Queue
+        while ( _data->window.pollEvent( event ) ) {
             
-            // If the input is "close the window", then close it.
-            if ( sf::Event::Closed == event.type ) {
+            // If the input/event is "close the window", then close it.
+            if ( event.type == sf::Event::Closed ) {
                 _data->window.close();
             }
             
@@ -54,9 +56,11 @@ namespace QT {
         }
     }
 
+
     void MainMenuState::update( float dt ) {
         
     }
+
 
     void MainMenuState::draw( float dt ) {
         _data->window.clear();
