@@ -9,6 +9,8 @@
 #pragma once
 
 namespace QT {
+
+    // Creating an Abstract class (It can't be instanciated) with pure virtual functions
     class State {
     public:
         virtual void init() = 0;
@@ -19,4 +21,5 @@ namespace QT {
         virtual void pause() { }
         virtual void resume() { }
     };
+
 }
