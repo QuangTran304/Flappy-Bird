@@ -50,7 +50,7 @@ namespace QT {
             
             // If user clicks on the sprite (i.e. the Play button), go to game screen
             if ( _data->input.isSpriteClicked( _playButton, sf::Mouse::Left, _data->window ) ) {
-                std::cout << "Go to Game Screen" << std::endl;
+                // Go to game screen, enter GameState
                 _data->machine.addState( StateRef( new GameState( _data )), true );
             }
         }
