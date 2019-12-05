@@ -41,15 +41,21 @@ namespace QT {
             
             // If user clicks on the sprite, ...
             if ( _data->input.isSpriteClicked( _background, sf::Mouse::Left, _data->window ) ) {
-                pipe->spawnInvisiblePipe();
-                pipe->spawnBottomPipe();
-                pipe->spawnTopPipe();
+                // Do something
             }
         }
     }
 
     void GameState::update( float dt ) {
         pipe->movePipes( dt );
+        
+        if ( clock.getElapsedTime().asSeconds()  >  PIPE_SPAWN_FREQUENCY ) {
+            pipe->spawnInvisiblePipe();
+            pipe->spawnBottomPipe();
+            pipe->spawnTopPipe();
+            
+            clock.restart();
+        }
     }
 
     void GameState::draw( float dt ) {

@@ -7,6 +7,7 @@
 //
 
 #include "Pipe.hpp"
+#include <iostream>
 
 namespace QT {
 
@@ -39,7 +40,7 @@ namespace QT {
     }
 
     void Pipe::spawnInvisiblePipe() {
-        // These invisible pipes are used to fix a screen problem.
+        // These invisible pipes are used to fix a screen problem: lag issue or movement issue
         sf::Sprite sprite( _data->assets.getTexture( "Pipe Up" ));      // Doesn't matter which pipe
         sprite.setPosition( _data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height );
         
@@ -49,8 +50,17 @@ namespace QT {
 
     void Pipe::movePipes( float dt ) {
         for ( unsigned short int i = 0; i < pipeSprites.size(); ++i) {
-            float movement = PIPE_MOVEMENT_SPEED * dt;
-            pipeSprites.at(i).move( -movement, 0 );         // -movement because we're gonna move pipe to the left of the x-axis
+            
+            // Delete the pipes when they go off the screen. If we only keep the condition as "... < 0", the pipes will be deleted right before the edge of the screen.
+            if ( pipeSprites.at(i).getPosition().x  <  0 - pipeSprites.at(i).getGlobalBounds().width ) {
+                
+                pipeSprites.erase( pipeSprites.begin() + i );
+                
+            } else {    // If that's not the case, move the pipes as normal
+                
+                float movement = PIPE_MOVEMENT_SPEED * dt;
+                pipeSprites.at(i).move( -movement, 0 );         // -movement because we're gonna move pipe to the left of the x-axis
+            }
         }
     }
 

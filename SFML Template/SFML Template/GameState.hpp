@@ -27,6 +27,7 @@ namespace QT {
         GameDataRef _data;
         sf::Sprite _background;
         Pipe* pipe;
+        sf::Clock clock;
     };
 }
 
