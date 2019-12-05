@@ -21,8 +21,14 @@ namespace QT {
     }
     
     void Pipe::spawnBottomPipe() {
+        // Create a sprite called "Pipe Up" (get it from the textures inside "assets" i.e. map<string, texture>)
         sf::Sprite sprite( _data->assets.getTexture( "Pipe Up" ));
+        
+        // On the X-axis, set the pipe outside of the window, then spawn it into the game screen.
+        // On the Y-axis, "_data->window.getSize().y" put the Pipe all the way down, so we need the formula.
+        // Imagine the x-y axis is located at the upper-left corner.
         sprite.setPosition( _data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height );
+        
         pipeSprites.push_back( sprite );
     }
 
@@ -33,7 +39,8 @@ namespace QT {
     }
 
     void Pipe::spawnInvisiblePipe() {
-        sf::Sprite sprite( _data->assets.getTexture( "Pipe Up" ));
+        // These invisible pipes are used to fix a screen problem.
+        sf::Sprite sprite( _data->assets.getTexture( "Pipe Up" ));      // Doesn't matter which pipe
         sprite.setPosition( _data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height );
         
         sprite.setColor( sf::Color( 0,0,0,0 ));
@@ -42,9 +49,8 @@ namespace QT {
 
     void Pipe::movePipes( float dt ) {
         for ( unsigned short int i = 0; i < pipeSprites.size(); ++i) {
-            sf::Vector2f position = pipeSprites.at(i).getPosition();
             float movement = PIPE_MOVEMENT_SPEED * dt;
-            pipeSprites.at(i).move( -movement, 0 );
+            pipeSprites.at(i).move( -movement, 0 );         // -movement because we're gonna move pipe to the left of the x-axis
         }
     }
 
