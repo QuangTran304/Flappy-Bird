@@ -12,6 +12,7 @@
 #include "State.hpp"
 #include "Game.hpp"
 #include "Pipe.hpp"
+#include "Land.hpp"
 
 namespace QT {
     class GameState: public State {
@@ -27,6 +28,7 @@ namespace QT {
         GameDataRef _data;
         sf::Sprite _background;
         Pipe* pipe;
+        Land* land;
         sf::Clock clock;
     };
 }

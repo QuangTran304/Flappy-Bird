@@ -25,8 +25,10 @@ namespace QT {
         _data->assets.loadTexture( "Game Background", GAME_BACKGROUND_FILEPATH );
         _data->assets.loadTexture( "Pipe Up", PIPE_UP_FILEPATH );
         _data->assets.loadTexture( "Pipe Down", PIPE_DOWN_FILEPATH );
+        _data->assets.loadTexture( "Land", LAND_FILEPATH );
         
         pipe = new Pipe( _data );
+        land = new Land( _data );
         
         _background.setTexture( this->_data->assets.getTexture( "Game Background" ));
     }
@@ -48,6 +50,7 @@ namespace QT {
 
     void GameState::update( float dt ) {
         pipe->movePipes( dt );
+        land->moveLand( dt );
         
         if ( clock.getElapsedTime().asSeconds()  >  PIPE_SPAWN_FREQUENCY ) {
             pipe->spawnInvisiblePipe();
@@ -61,7 +64,10 @@ namespace QT {
     void GameState::draw( float dt ) {
         _data->window.clear();
         _data->window.draw( _background );
+        
         pipe->drawPipes();          // Draw pipes after drawing the background
+        land->drawLand();
+        
         _data->window.display();
     }
 }
