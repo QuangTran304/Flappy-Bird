@@ -26,9 +26,11 @@ namespace QT {
         _data->assets.loadTexture( "Pipe Up", PIPE_UP_FILEPATH );
         _data->assets.loadTexture( "Pipe Down", PIPE_DOWN_FILEPATH );
         _data->assets.loadTexture( "Land", LAND_FILEPATH );
+        _data->assets.loadTexture( "Bird Frame 1", BIRD_FRAME_1_FILEPATH );
         
         pipe = new Pipe( _data );
         land = new Land( _data );
+        bird = new Bird( _data );
         
         _background.setTexture( this->_data->assets.getTexture( "Game Background" ));
     }
@@ -69,6 +71,7 @@ namespace QT {
         
         pipe->drawPipes();          // Draw pipes after drawing the background
         land->drawLand();
+        bird->draw();
         
         _data->window.display();
     }

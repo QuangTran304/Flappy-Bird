@@ -25,6 +25,11 @@
 
 #define LAND_FILEPATH "Resources/res/Land.png"
 
+#define BIRD_FRAME_1_FILEPATH "Resources/res/bird-01.png"
+#define BIRD_FRAME_2_FILEPATH "Resources/res/bird-02png"
+#define BIRD_FRAME_3_FILEPATH "Resources/res/bird-03.png"
+#define BIRD_FRAME_4_FILEPATH "Resources/res/bird-04.png"
+
 #define PIPE_MOVEMENT_SPEED 200.0f
 #define PIPE_SPAWN_FREQUENCY 0.5f
 
