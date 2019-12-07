@@ -12,7 +12,8 @@
 namespace QT {
 
     Pipe::Pipe( GameDataRef data ): _data(data) {
-        
+        _landHeight = _data->assets.getTexture( "Land" ).getSize().y;
+        _pipeSpawnY_offSet = 0;
     }
 
     void Pipe::drawPipes() {
@@ -28,14 +29,14 @@ namespace QT {
         // On the X-axis, set the pipe outside of the window, then spawn it into the game screen.
         // On the Y-axis, "_data->window.getSize().y" put the Pipe all the way down, so we need the formula.
         // Imagine the x-y axis is located at the upper-left corner.
-        sprite.setPosition( _data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height );
+        sprite.setPosition( _data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height - _pipeSpawnY_offSet);   // Added "_pipeSpawnY_offSet" to randomise the y movement of pipes.
         
         pipeSprites.push_back( sprite );
     }
 
     void Pipe::spawnTopPipe() {
         sf::Sprite sprite( _data->assets.getTexture( "Pipe Down" ));
-        sprite.setPosition( _data->window.getSize().x, 0 );             // Set y position to 0
+        sprite.setPosition( _data->window.getSize().x, 0 - _pipeSpawnY_offSet );   // "0 - pipeSpawnY_offSet" to randomise the up/down of the pipe.
         pipeSprites.push_back( sprite );
     }
 
@@ -64,5 +65,9 @@ namespace QT {
         }
     }
 
+    
+    void Pipe::randomisePipeOffset() {
+        _pipeSpawnY_offSet = rand() % ( _landHeight + 1 );
+    }
 
 }

@@ -53,6 +53,8 @@ namespace QT {
         land->moveLand( dt );
         
         if ( clock.getElapsedTime().asSeconds()  >  PIPE_SPAWN_FREQUENCY ) {
+            pipe->randomisePipeOffset();
+            
             pipe->spawnInvisiblePipe();
             pipe->spawnBottomPipe();
             pipe->spawnTopPipe();

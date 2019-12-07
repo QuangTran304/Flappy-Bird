@@ -21,9 +21,10 @@ namespace QT {
         _landSprites.push_back( sprite2 );
     }
 
+
     void Land::moveLand( float dt ) {
         for ( unsigned short i = 0; i < _landSprites.size(); ++i ) {
-            float movement = PIPE_MOVEMENT_SPEED * dt;
+            float movement = PIPE_MOVEMENT_SPEED * dt;          // Land speed = pipe speed
             
             _landSprites.at(i).move( -movement, 0.0f );
             
@@ -34,6 +35,7 @@ namespace QT {
             }
         }
     }
+
 
     void Land::drawLand() {
         for ( unsigned short i = 0; i < _landSprites.size(); ++i ) {

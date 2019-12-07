@@ -23,10 +23,14 @@ namespace QT {
         void spawnTopPipe();
         void spawnInvisiblePipe();
         void movePipes( float dt );
+        void randomisePipeOffset();
         
     private:
         GameDataRef _data;
         std::vector<sf::Sprite> pipeSprites;
+        
+        int _landHeight;            // Height of the land sprite
+        int _pipeSpawnY_offSet;     // How much the next set of pipes will move (up/down)
     };
 
 }
