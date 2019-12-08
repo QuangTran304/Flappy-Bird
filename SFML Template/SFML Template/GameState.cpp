@@ -27,6 +27,9 @@ namespace QT {
         _data->assets.loadTexture( "Pipe Down", PIPE_DOWN_FILEPATH );
         _data->assets.loadTexture( "Land", LAND_FILEPATH );
         _data->assets.loadTexture( "Bird Frame 1", BIRD_FRAME_1_FILEPATH );
+        _data->assets.loadTexture( "Bird Frame 2", BIRD_FRAME_2_FILEPATH );
+        _data->assets.loadTexture( "Bird Frame 3", BIRD_FRAME_3_FILEPATH );
+        _data->assets.loadTexture( "Bird Frame 4", BIRD_FRAME_4_FILEPATH );
         
         pipe = new Pipe( _data );
         land = new Land( _data );
@@ -63,6 +66,8 @@ namespace QT {
             
             clock.restart();
         }
+        
+        bird->animate( dt );
     }
 
     void GameState::draw( float dt ) {
