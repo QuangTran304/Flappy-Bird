@@ -46,9 +46,9 @@ namespace QT {
                 _data->window.close();
             }
             
-            // If user clicks on the sprite, ...
+            // If user clicks on the sprite, ... (i.e. The Background - because the background covered the entire screen)
             if ( _data->input.isSpriteClicked( _background, sf::Mouse::Left, _data->window ) ) {
-                // Do something
+                bird->tap();
             }
         }
     }
@@ -68,6 +68,7 @@ namespace QT {
         }
         
         bird->animate( dt );
+        bird->update( dt );
     }
 
     void GameState::draw( float dt ) {

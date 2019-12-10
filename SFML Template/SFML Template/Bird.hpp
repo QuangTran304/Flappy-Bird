@@ -20,12 +20,19 @@ namespace QT {
         Bird( GameDataRef data );
         void draw();
         void animate( float dt );
+        void update( float dt );
+        void tap();
         
     private:
         GameDataRef _data;
         sf::Sprite _birdSprite;         // We're not going to have 4 different sprites. Just need to swap the textures to animate the bird.
         std::vector<sf::Texture> _animationFrames;
         unsigned _animationIterator;    // Current frame that is being displayed
+        
         sf::Clock _clock;
+        sf::Clock _movementClock;       // To track the movement -> We could reset the time -> allow user to tap multiple times.
+    
+        int _birdState;
+        float _rotation;
     };
 }

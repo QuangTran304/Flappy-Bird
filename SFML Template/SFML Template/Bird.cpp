@@ -17,7 +17,19 @@ namespace QT {
         _animationFrames.push_back( _data->assets.getTexture( "Bird Frame 3" ));
         _animationFrames.push_back( _data->assets.getTexture( "Bird Frame 4" ));
         
-        _birdSprite.setTexture( _data->assets.getTexture( "Bird Frame 1" ));
+        _birdSprite.setTexture( _animationFrames.at( _animationIterator ));
+        
+        // Set the bird's x-position at 25% of the screen to the left, y-position at 50% of the screen.
+        // " - (_birdSprite.getGlobalBounds().width / 2)" because the origins of the bird sprite is on the left of the graphic. We want to align to the center of the sprite.
+        _birdSprite.setPosition( (_data->window.getSize().x / 4) - (_birdSprite.getGlobalBounds().width / 2)  ,  (_data->window.getSize().x / 2) - (_birdSprite.getGlobalBounds().width / 2 ));
+        
+        _birdState = BIRD_STATE_STILL;
+        
+        // Get the origin at the center of the bird sprite -> so that we could rotate the bird
+        sf::Vector2f birdOrigin = sf::Vector2f( _birdSprite.getGlobalBounds().width / 2  , _birdSprite.getGlobalBounds().height / 2  );
+        _birdSprite.setOrigin( birdOrigin );
+        
+        _rotation = 0;      // Init the rotation angle to 0
     }
 
     void Bird::draw() {
@@ -38,5 +50,44 @@ namespace QT {
             _birdSprite.setTexture( _animationFrames.at( _animationIterator ));
             _clock.restart();
         }
+    }
+
+
+    void Bird::update( float dt ) {
+        if ( _birdState  ==  BIRD_STATE_FALLING ) {
+            // We don't need to move the bird on the x-axis because everything else is still moving.
+            // We need to " * dt" to make it frame-rate independent.
+            _birdSprite.move( 0, GRAVITY * dt );
+            
+            // Rotate the bird
+            _rotation += ROTATION_SPEED * dt;
+            if ( _rotation  >  25.0f ) {
+                _rotation = 25.0f;
+            }
+            _birdSprite.setRotation( _rotation );
+            
+        } else if ( _birdState  ==  BIRD_STATE_FLYING ) {
+            // "-FLYING_SPEED" because positive value move the bird down
+            _birdSprite.move( 0, -FLYING_SPEED * dt );
+        
+            // Rotate the bird
+            _rotation -= ROTATION_SPEED * dt;
+            if ( _rotation  <  -25.0f ) {
+                _rotation = -25.0f;
+            }
+            _birdSprite.setRotation( _rotation );
+        }
+        
+        
+        if ( _movementClock.getElapsedTime().asSeconds()  >  FLYING_DURATION ) {
+            // If the current flying time of the bird (_movementClock) > than the flying duration...
+            _movementClock.restart();
+            _birdState = BIRD_STATE_FALLING;
+        }
+    }
+
+    void Bird::tap() {
+        _movementClock.restart();   // Need to restart the clock to 0 because we don't know how long the user wait to press on the screen.
+        _birdState = BIRD_STATE_FLYING;
     }
 }
