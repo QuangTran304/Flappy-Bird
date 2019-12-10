@@ -14,7 +14,7 @@
 #include "Pipe.hpp"
 #include "Land.hpp"
 #include "Bird.hpp"
-
+#include "Collision.hpp"
 
 namespace QT {
     class GameState: public State {
@@ -32,7 +32,9 @@ namespace QT {
         Pipe* pipe;
         Land* land;
         Bird* bird;
+        Collision collision;    // Not a pointer because we don't need to re-construct it afterwards.
         sf::Clock clock;
+        int _gameState;
     };
 }
 

@@ -18,6 +18,7 @@ namespace QT {
         Land ( GameDataRef data );
         void moveLand( float dt );
         void drawLand();
+        const std::vector<sf::Sprite>& getSprites() const;
         
     private:
         GameDataRef _data;

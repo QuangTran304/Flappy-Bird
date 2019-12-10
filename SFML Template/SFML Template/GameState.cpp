@@ -36,6 +36,8 @@ namespace QT {
         bird = new Bird( _data );
         
         _background.setTexture( this->_data->assets.getTexture( "Game Background" ));
+        
+        _gameState = GameStates::eREADY;
     }
 
     void GameState::handleInput() {
@@ -48,28 +50,45 @@ namespace QT {
             
             // If user clicks on the sprite, ... (i.e. The Background - because the background covered the entire screen)
             if ( _data->input.isSpriteClicked( _background, sf::Mouse::Left, _data->window ) ) {
-                bird->tap();
+                if ( _gameState  !=  GameStates::eGAMEOVER ) {
+                    _gameState = GameStates::ePLAYING;
+                    bird->tap();
+                }
             }
         }
     }
 
     void GameState::update( float dt ) {
-        pipe->movePipes( dt );
-        land->moveLand( dt );
-        
-        if ( clock.getElapsedTime().asSeconds()  >  PIPE_SPAWN_FREQUENCY ) {
-            pipe->randomisePipeOffset();
-            
-            pipe->spawnInvisiblePipe();
-            pipe->spawnBottomPipe();
-            pipe->spawnTopPipe();
-            
-            clock.restart();
+        if ( _gameState  !=  GameStates::eGAMEOVER ) {
+            bird->animate( dt );
+            land->moveLand( dt );
         }
         
-        bird->animate( dt );
-        bird->update( dt );
+        if ( _gameState  ==  GameStates::ePLAYING ) {
+            pipe->movePipes( dt );
+            
+            if ( clock.getElapsedTime().asSeconds()  >  PIPE_SPAWN_FREQUENCY ) {
+                pipe->randomisePipeOffset();
+                
+                pipe->spawnInvisiblePipe();
+                pipe->spawnBottomPipe();
+                pipe->spawnTopPipe();
+                
+                clock.restart();
+            }
+            
+            bird->update( dt );
+            
+            std::vector<sf::Sprite> landSprites = land->getSprites();
+            for ( int i = 0; i < landSprites.size(); ++i ) {
+                if ( collision.checkSpriteCollision( bird->getSprite(), landSprites.at(i) )) {
+                    _gameState = GameStates::eGAMEOVER;
+                }
+            }
+            
+        }
     }
+
 
     void GameState::draw( float dt ) {
         _data->window.clear();

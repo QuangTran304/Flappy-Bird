@@ -15,6 +15,7 @@
 		1B6B1E93238E632600A22AA3 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B1E91238E632600A22AA3 /* AssetManager.cpp */; };
 		1B6B1E96238E689100A22AA3 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B1E94238E689100A22AA3 /* InputManager.cpp */; };
 		1B82C92F238C2F5400CBCD30 /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B82C92D238C2F5400CBCD30 /* StateMachine.cpp */; };
+		1BAE2419239FAA3D00EBD17C /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE2417239FAA3D00EBD17C /* Collision.cpp */; };
 		1BF58E67238ECA4500BF7612 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BF58E65238ECA4500BF7612 /* Game.cpp */; };
 		1BFBF857237906E3007DA785 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BFBF856237906E3007DA785 /* main.cpp */; };
 		1BFBF85F23794F74007DA785 /* libsfml-audio.2.5.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFBF85E23794F74007DA785 /* libsfml-audio.2.5.1.dylib */; };
@@ -66,6 +67,8 @@
 		1B82C92C238C2E3500CBCD30 /* State.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
 		1B82C92D238C2F5400CBCD30 /* StateMachine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateMachine.cpp; sourceTree = "<group>"; };
 		1B82C92E238C2F5400CBCD30 /* StateMachine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StateMachine.hpp; sourceTree = "<group>"; };
+		1BAE2417239FAA3D00EBD17C /* Collision.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
+		1BAE2418239FAA3D00EBD17C /* Collision.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Collision.hpp; sourceTree = "<group>"; };
 		1BF58E65238ECA4500BF7612 /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		1BF58E66238ECA4500BF7612 /* Game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
 		1BF58EB7238EDDFF00BF7612 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				1B57EC81239BA9B300345F33 /* Land.hpp */,
 				1B57EC83239BB77C00345F33 /* Bird.cpp */,
 				1B57EC84239BB77C00345F33 /* Bird.hpp */,
+				1BAE2417239FAA3D00EBD17C /* Collision.cpp */,
+				1BAE2418239FAA3D00EBD17C /* Collision.hpp */,
 			);
 			path = "SFML Template";
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BAE2419239FAA3D00EBD17C /* Collision.cpp in Sources */,
 				1B334A8B23902B0C00F81058 /* MainMenuState.cpp in Sources */,
 				1BFEF53223950D78009411D3 /* GameState.cpp in Sources */,
 				1B57EC82239BA9B300345F33 /* Land.cpp in Sources */,

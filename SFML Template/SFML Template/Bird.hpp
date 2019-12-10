@@ -22,6 +22,7 @@ namespace QT {
         void animate( float dt );
         void update( float dt );
         void tap();
+        const sf::Sprite& getSprite() const;
         
     private:
         GameDataRef _data;
@@ -32,7 +33,7 @@ namespace QT {
         sf::Clock _clock;
         sf::Clock _movementClock;       // To track the movement -> We could reset the time -> allow user to tap multiple times.
     
-        int _birdState;
-        float _rotation;
+        int _birdState;                 // Either STILL, FALLING or FLYING
+        float _rotation;                // Rotationn angle for the bird sprite
     };
 }

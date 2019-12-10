@@ -45,3 +45,9 @@
 #define FLYING_DURATION 0.25f
 
 #define ROTATION_SPEED 100.0f
+
+enum GameStates {
+    eREADY,         // Set to eREADY by default, the bird won't move - pipes won't response.
+    ePLAYING,       // As soon as user hit "Play" at Game screen, GameStates will be set to ePLAYING.
+    eGAMEOVER       // When collide with the ground/ pipe, GameStates will be eGAMEOVER, everything will stop moving.
+};

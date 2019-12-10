@@ -61,7 +61,7 @@ namespace QT {
             
             // Rotate the bird
             _rotation += ROTATION_SPEED * dt;
-            if ( _rotation  >  25.0f ) {
+            if ( _rotation  >  25.0f ) {    // If the rotation angle is > than 25 deg.
                 _rotation = 25.0f;
             }
             _birdSprite.setRotation( _rotation );
@@ -89,5 +89,9 @@ namespace QT {
     void Bird::tap() {
         _movementClock.restart();   // Need to restart the clock to 0 because we don't know how long the user wait to press on the screen.
         _birdState = BIRD_STATE_FLYING;
+    }
+
+    const sf::Sprite& Bird::getSprite() const {
+        return _birdSprite;
     }
 }
