@@ -70,4 +70,9 @@ namespace QT {
         _pipeSpawnY_offSet = rand() % ( _landHeight + 1 );
     }
 
+
+    const std::vector<sf::Sprite>& Pipe::getSprites() const {
+        return pipeSprites;
+    }
+
 }

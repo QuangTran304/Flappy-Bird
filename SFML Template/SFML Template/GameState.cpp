@@ -79,13 +79,38 @@ namespace QT {
             
             bird->update( dt );
             
+//            // Land collision detection
+//            std::vector<sf::Sprite> landSprites = land->getSprites();
+//            for ( int i = 0; i < landSprites.size(); ++i ) {
+//                if ( collision.checkSpriteCollision( bird->getSprite(), landSprites.at(i) )) {
+//                    _gameState = GameStates::eGAMEOVER;
+//                }
+//            }
+            
+            // Land collision detection
             std::vector<sf::Sprite> landSprites = land->getSprites();
             for ( int i = 0; i < landSprites.size(); ++i ) {
-                if ( collision.checkSpriteCollision( bird->getSprite(), landSprites.at(i) )) {
+                if ( collision.checkSpriteCollision( bird->getSprite(), 0.7f, landSprites.at(i), 1.0f )) {
                     _gameState = GameStates::eGAMEOVER;
                 }
             }
             
+            
+//            // Pipe collision detection
+//            std::vector<sf::Sprite> pipeSprites = pipe->getSprites();
+//            for ( int i = 0; i < pipeSprites.size(); ++i ) {
+//                if ( collision.checkSpriteCollision( bird->getSprite(), pipeSprites.at(i) )) {
+//                    _gameState = GameStates::eGAMEOVER;
+//                }
+//            }
+            
+            // Pipe collision detection
+            std::vector<sf::Sprite> pipeSprites = pipe->getSprites();
+            for ( int i = 0; i < pipeSprites.size(); ++i ) {
+                if ( collision.checkSpriteCollision( bird->getSprite(), 0.625f, pipeSprites.at(i), 1.0f )) {
+                    _gameState = GameStates::eGAMEOVER;
+                }
+            }
         }
     }
 

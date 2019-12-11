@@ -25,6 +25,8 @@ namespace QT {
         void movePipes( float dt );
         void randomisePipeOffset();
         
+        const std::vector<sf::Sprite>& getSprites() const;
+        
     private:
         GameDataRef _data;
         std::vector<sf::Sprite> pipeSprites;
