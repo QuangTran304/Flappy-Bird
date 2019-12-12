@@ -15,6 +15,8 @@
 #include "Land.hpp"
 #include "Bird.hpp"
 #include "Collision.hpp"
+#include "Flash.hpp"
+
 
 namespace QT {
     class GameState: public State {
@@ -29,10 +31,13 @@ namespace QT {
     private:
         GameDataRef _data;
         sf::Sprite _background;
+        
         Pipe* pipe;
         Land* land;
         Bird* bird;
         Collision collision;    // Not a pointer because we don't need to re-construct it afterwards.
+        Flash* flash;
+        
         sf::Clock clock;
         int _gameState;
     };

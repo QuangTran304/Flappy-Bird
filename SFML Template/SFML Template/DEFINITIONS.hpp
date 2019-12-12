@@ -51,3 +51,5 @@ enum GameStates {
     ePLAYING,       // As soon as user hit "Play" at Game screen, GameStates will be set to ePLAYING.
     eGAMEOVER       // When collide with the ground/ pipe, GameStates will be eGAMEOVER, everything will stop moving.
 };
+
+#define FLASH_SPEED 1500.0f

@@ -34,6 +34,7 @@ namespace QT {
         pipe = new Pipe( _data );
         land = new Land( _data );
         bird = new Bird( _data );
+        flash = new Flash( _data );
         
         _background.setTexture( this->_data->assets.getTexture( "Game Background" ));
         
@@ -112,6 +113,12 @@ namespace QT {
                 }
             }
         }
+        
+        
+        // Show the white flash if GAME OVER
+        if ( _gameState  ==  GameStates::eGAMEOVER ) {
+            flash->show( dt );
+        }
     }
 
 
@@ -122,6 +129,7 @@ namespace QT {
         pipe->drawPipes();          // Draw pipes after drawing the background
         land->drawLand();
         bird->draw();
+        flash->draw();              // By default, there will be a clear flash drawing constantly (alpha/opacity = 0).
         
         _data->window.display();
     }
