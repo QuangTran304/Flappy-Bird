@@ -20,7 +20,7 @@ namespace QT {
         Loading the texture using AssetManager
     */
     void GameState::init() {
-        std::cout << "Init() Game State" << std::endl;
+//        std::cout << "Init() Game State" << std::endl;
         
         _data->assets.loadTexture( "Game Background", GAME_BACKGROUND_FILEPATH );
         _data->assets.loadTexture( "Pipe Up", PIPE_UP_FILEPATH );
@@ -30,15 +30,19 @@ namespace QT {
         _data->assets.loadTexture( "Bird Frame 2", BIRD_FRAME_2_FILEPATH );
         _data->assets.loadTexture( "Bird Frame 3", BIRD_FRAME_3_FILEPATH );
         _data->assets.loadTexture( "Bird Frame 4", BIRD_FRAME_4_FILEPATH );
+        _data->assets.loadTexture( "Scoring Pipe", SCORING_PIPE_FILEPATH );
+        _data->assets.loadFont( "Flappy Font", FLAPPY_FONT_FILEPATH );
         
         pipe = new Pipe( _data );
         land = new Land( _data );
         bird = new Bird( _data );
         flash = new Flash( _data );
+        hud = new HUD( _data );
         
         _background.setTexture( this->_data->assets.getTexture( "Game Background" ));
-        
-        _gameState = GameStates::eREADY;
+        _score = 0;                         // Initial score;
+        hud->updateScore( _score );         // Let the HUD takes care of it
+        _gameState = GameStates::eREADY;    // Default state when game start
     }
 
     void GameState::handleInput() {
@@ -74,6 +78,7 @@ namespace QT {
                 pipe->spawnInvisiblePipe();
                 pipe->spawnBottomPipe();
                 pipe->spawnTopPipe();
+                pipe->spawnScoringPipe();
                 
                 clock.restart();
             }
@@ -96,7 +101,6 @@ namespace QT {
                 }
             }
             
-            
 //            // Pipe collision detection
 //            std::vector<sf::Sprite> pipeSprites = pipe->getSprites();
 //            for ( int i = 0; i < pipeSprites.size(); ++i ) {
@@ -112,6 +116,22 @@ namespace QT {
                     _gameState = GameStates::eGAMEOVER;
                 }
             }
+            
+            // If the game is still in PLAYING State (doesn't go to GAMEOVER State due to colliding with pipe & land):
+            if ( _gameState  ==  GameStates::ePLAYING ) {
+                // (Scoring)Pipe collision detection -> count the scores.
+                std::vector<sf::Sprite>& scoringSprites = pipe->getScoringSprites();
+                for ( int i = 0; i < scoringSprites.size(); ++i ) {
+                    if ( collision.checkSpriteCollision( bird->getSprite(), 0.625f, scoringSprites.at(i), 1.0f )) {
+                        _score++;
+//                        std::cout << "Current score: " << _score << std::endl;
+                        hud->updateScore( _score );
+                        scoringSprites.erase( scoringSprites.begin() + i );
+                    }
+                }
+            }
+            
+           
         }
         
         
@@ -130,6 +150,7 @@ namespace QT {
         land->drawLand();
         bird->draw();
         flash->draw();              // By default, there will be a clear flash drawing constantly (alpha/opacity = 0).
+        hud->draw();                // Display the score
         
         _data->window.display();
     }

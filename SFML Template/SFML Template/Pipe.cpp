@@ -15,13 +15,8 @@ namespace QT {
         _landHeight = _data->assets.getTexture( "Land" ).getSize().y;
         _pipeSpawnY_offSet = 0;
     }
-
-    void Pipe::drawPipes() {
-        for (unsigned short int i = 0; i < pipeSprites.size(); ++i) {
-            _data->window.draw( pipeSprites.at(i) );
-        }
-    }
     
+
     void Pipe::spawnBottomPipe() {
         // Create a sprite called "Pipe Up" (get it from the textures inside "assets" i.e. map<string, texture>)
         sf::Sprite sprite( _data->assets.getTexture( "Pipe Up" ));
@@ -34,11 +29,13 @@ namespace QT {
         pipeSprites.push_back( sprite );
     }
 
+
     void Pipe::spawnTopPipe() {
         sf::Sprite sprite( _data->assets.getTexture( "Pipe Down" ));
         sprite.setPosition( _data->window.getSize().x, 0 - _pipeSpawnY_offSet );   // "0 - pipeSpawnY_offSet" to randomise the up/down of the pipe.
         pipeSprites.push_back( sprite );
     }
+
 
     void Pipe::spawnInvisiblePipe() {
         // These invisible pipes are used to fix a screen problem: lag issue or movement issue
@@ -49,7 +46,17 @@ namespace QT {
         pipeSprites.push_back( sprite );
     }
 
+
+    void Pipe::spawnScoringPipe() {
+       // These pipes will be invisible, cover the screen from top to bottom
+       sf::Sprite sprite( _data->assets.getTexture( "Scoring Pipe" ));
+       sprite.setPosition( _data->window.getSize().x, 0 );
+       scoringPipes.push_back( sprite );
+    }
+
+
     void Pipe::movePipes( float dt ) {
+        // MOVE REGULAR PIPES
         for ( unsigned short int i = 0; i < pipeSprites.size(); ++i) {
             
             // Delete the pipes when they go off the screen. If we only keep the condition as "... < 0", the pipes will be deleted right before the edge of the screen.
@@ -63,9 +70,29 @@ namespace QT {
                 pipeSprites.at(i).move( -movement, 0 );         // -movement because we're gonna move pipe to the left of the x-axis
             }
         }
+        
+        
+        // MOVE SCORING PIPES
+        for ( unsigned short int i = 0; i < scoringPipes.size(); ++i ) {
+            
+            if ( scoringPipes.at(i).getPosition().x  <  0 - scoringPipes.at(i).getGlobalBounds().width ) {
+                scoringPipes.erase( scoringPipes.begin() + i );
+            } else {
+                float movement = PIPE_MOVEMENT_SPEED * dt;
+                scoringPipes.at(i).move( -movement, 0 );
+            }
+        }
+        
     }
 
     
+    void Pipe::drawPipes() {
+         for (unsigned short int i = 0; i < pipeSprites.size(); ++i) {
+             _data->window.draw( pipeSprites.at(i) );
+         }
+    }
+
+
     void Pipe::randomisePipeOffset() {
         _pipeSpawnY_offSet = rand() % ( _landHeight + 1 );
     }
@@ -73,6 +100,11 @@ namespace QT {
 
     const std::vector<sf::Sprite>& Pipe::getSprites() const {
         return pipeSprites;
+    }
+
+
+    std::vector<sf::Sprite>& Pipe::getScoringSprites() {
+        return scoringPipes;
     }
 
 }

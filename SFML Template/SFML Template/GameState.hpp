@@ -16,6 +16,7 @@
 #include "Bird.hpp"
 #include "Collision.hpp"
 #include "Flash.hpp"
+#include "HUD.hpp"
 
 
 namespace QT {
@@ -37,9 +38,11 @@ namespace QT {
         Bird* bird;
         Collision collision;    // Not a pointer because we don't need to re-construct it afterwards.
         Flash* flash;
+        HUD* hud;
         
         sf::Clock clock;
         int _gameState;
+        int _score;             // Keep track of the user scores
     };
 }
 

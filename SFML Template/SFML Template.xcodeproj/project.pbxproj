@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B03204323A38BCA00467EAB /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B03204123A38BCA00467EAB /* HUD.cpp */; };
 		1B334A84238EDEDC00F81058 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BF58EB7238EDDFF00BF7612 /* Resources */; };
 		1B334A88238FCB4200F81058 /* SplashState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B334A86238FCB4200F81058 /* SplashState.cpp */; };
 		1B334A8B23902B0C00F81058 /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B334A8923902B0C00F81058 /* MainMenuState.cpp */; };
@@ -52,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B03204123A38BCA00467EAB /* HUD.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HUD.cpp; sourceTree = "<group>"; };
+		1B03204223A38BCA00467EAB /* HUD.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HUD.hpp; sourceTree = "<group>"; };
 		1B334A86238FCB4200F81058 /* SplashState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashState.cpp; sourceTree = "<group>"; };
 		1B334A87238FCB4200F81058 /* SplashState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SplashState.hpp; sourceTree = "<group>"; };
 		1B334A8923902B0C00F81058 /* MainMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuState.cpp; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				1BAE2418239FAA3D00EBD17C /* Collision.hpp */,
 				1B4A6EA323A2978300E4CB99 /* Flash.cpp */,
 				1B4A6EA423A2978300E4CB99 /* Flash.hpp */,
+				1B03204123A38BCA00467EAB /* HUD.cpp */,
+				1B03204223A38BCA00467EAB /* HUD.hpp */,
 			);
 			path = "SFML Template";
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				1B6B1E93238E632600A22AA3 /* AssetManager.cpp in Sources */,
 				1BFEF53823951177009411D3 /* GameOverState.cpp in Sources */,
 				1B57EC85239BB77C00345F33 /* Bird.cpp in Sources */,
+				1B03204323A38BCA00467EAB /* HUD.cpp in Sources */,
 				1B334A88238FCB4200F81058 /* SplashState.cpp in Sources */,
 				1BFBF857237906E3007DA785 /* main.cpp in Sources */,
 				1B82C92F238C2F5400CBCD30 /* StateMachine.cpp in Sources */,
