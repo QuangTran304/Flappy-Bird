@@ -10,6 +10,7 @@
 #include <sstream>
 #include "DEFINITIONS.hpp"
 #include <iostream>
+#include "GameOverState.hpp"
 
 namespace QT {
     GameState::GameState( GameDataRef data): _data(data) {
@@ -98,6 +99,7 @@ namespace QT {
             for ( int i = 0; i < landSprites.size(); ++i ) {
                 if ( collision.checkSpriteCollision( bird->getSprite(), 0.7f, landSprites.at(i), 1.0f )) {
                     _gameState = GameStates::eGAMEOVER;
+                    clock.restart();        // As the game is over, the clock is no longer used to spawning the pipes.
                 }
             }
             
@@ -114,6 +116,7 @@ namespace QT {
             for ( int i = 0; i < pipeSprites.size(); ++i ) {
                 if ( collision.checkSpriteCollision( bird->getSprite(), 0.625f, pipeSprites.at(i), 1.0f )) {
                     _gameState = GameStates::eGAMEOVER;
+                    clock.restart();        // As the game is over, the clock is no longer used to spawning the pipes.
                 }
             }
             
@@ -138,6 +141,10 @@ namespace QT {
         // Show the white flash if GAME OVER
         if ( _gameState  ==  GameStates::eGAMEOVER ) {
             flash->show( dt );
+            
+            if ( clock.getElapsedTime().asSeconds()  >  TIME_BEFORE_GAME_OVER_APPEARS ) {
+                _data->machine.addState( StateRef( new GameOverState(_data, _score) ), true );
+            }
         }
     }
 
