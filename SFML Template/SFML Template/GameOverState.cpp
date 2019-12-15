@@ -11,6 +11,7 @@
 #include "DEFINITIONS.hpp"
 #include <iostream>
 #include "GameState.hpp"
+#include <fstream>
 
 namespace QT {
     GameOverState::GameOverState( GameDataRef data, int score): _data(data), _score(score) {
@@ -22,6 +23,25 @@ namespace QT {
     */
     void GameOverState::init() {
 //        std::cout << "Game-over State" << std::endl;
+        
+        std::fstream readFile;
+        readFile.open( HIGH_SCORE_FILE_PATH );
+        if ( readFile.is_open() ) {
+            while ( !readFile.eof() ) {
+                readFile >> _highScore;
+            }
+        }
+        readFile.close();
+        
+        std::fstream writeFile( HIGH_SCORE_FILE_PATH );
+        if ( writeFile.is_open() ) {
+            if ( _score > _highScore ) {
+                _highScore = _score;
+            }
+            writeFile << _highScore;
+        }
+        writeFile.close();
+    
         
         _data->assets.loadTexture( "Game Over Background", GAME_OVER_BACKGROUND_FILEPATH );
         _data->assets.loadTexture( "Game Over Title", GAME_OVER_TITLE_FILEPATH );

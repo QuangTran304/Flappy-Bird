@@ -35,6 +35,8 @@
 
 #define FLAPPY_FONT_FILEPATH "Resources/fonts/FlappyFont.ttf"
 
+#define HIGH_SCORE_FILE_PATH "Resources/Highscore.txt"
+
 #define PIPE_MOVEMENT_SPEED 200.0f
 #define PIPE_SPAWN_FREQUENCY 2.5f
 
