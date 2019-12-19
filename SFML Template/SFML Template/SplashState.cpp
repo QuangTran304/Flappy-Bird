@@ -11,6 +11,7 @@
 #include "DEFINITIONS.hpp"
 #include "MainMenuState.hpp"
 #include <iostream>
+#include <memory>
 
 using std::make_unique;
 
@@ -18,7 +19,6 @@ namespace QT {
     SplashState::SplashState( GameDataRef data): _data(data) {
         
     }
-
 
     // Loading the texture (i.e. company's logo) using AssetManager
     void SplashState::init() {

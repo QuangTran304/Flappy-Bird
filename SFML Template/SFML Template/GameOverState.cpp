@@ -45,7 +45,8 @@ namespace QT {
         
         _data->assets.loadTexture( "Game Over Background", GAME_OVER_BACKGROUND_FILEPATH );
         _data->assets.loadTexture( "Game Over Title", GAME_OVER_TITLE_FILEPATH );
-        _data->assets.loadTexture( "Game Over Body", GAME_OVER_BODY_FILEPATH);
+        _data->assets.loadTexture( "Game Over Body", GAME_OVER_BODY_FILEPATH );
+        _data->assets.loadTexture( "Play Button", PLAY_BUTTON_FILEPATH );
         
         _data->assets.loadTexture( "Bronze Medal", BRONZE_MEDAL_FILEPATH);
         _data->assets.loadTexture( "Silver Medal", SILVER_MEDAL_FILEPATH);

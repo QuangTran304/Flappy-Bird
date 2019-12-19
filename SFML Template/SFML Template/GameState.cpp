@@ -17,11 +17,10 @@ namespace QT {
         
     }
 
-    /*
-        Loading the texture using AssetManager
-    */
+
+    // Loading the texture using AssetManager
     void GameState::init() {
-//        std::cout << "Init() Game State" << std::endl;
+        
         if ( !_hitSoundBuffer.loadFromFile( HIT_SOUND_FILEPATH )) {
             std::cout << "Error loading HIT sound effect" << std::endl;
         }
@@ -47,13 +46,13 @@ namespace QT {
         _data->assets.loadTexture( "Scoring Pipe", SCORING_PIPE_FILEPATH );
         _data->assets.loadFont( "Flappy Font", FLAPPY_FONT_FILEPATH );
         
-        pipe = new Pipe( _data );
-        land = new Land( _data );
-        bird = new Bird( _data );
-        flash = new Flash( _data );
-        hud = new HUD( _data );
+        pipe = std::make_unique<Pipe>( _data );
+        land = std::make_unique<Land>( _data );
+        bird = std::make_unique<Bird>( _data );
+        flash = std::make_unique<Flash>( _data );
+        hud = std::make_unique<HUD>( _data );
         
-        _background.setTexture( this->_data->assets.getTexture( "Game Background" ));
+        _background.setTexture( _data->assets.getTexture( "Game Background" ));
         _score = 0;                         // Initial score;
         hud->updateScore( _score );         // Let the HUD takes care of it
         _gameState = GameStates::eREADY;    // Default state when game start
@@ -160,7 +159,8 @@ namespace QT {
             flash->show( dt );
             
             if ( clock.getElapsedTime().asSeconds()  >  TIME_BEFORE_GAME_OVER_APPEARS ) {
-                _data->machine.addState( StateRef( new GameOverState(_data, _score) ), true );
+//                _data->machine.addState( StateRef( new GameOverState(_data, _score) ), true );
+                _data->machine.addState( std::make_unique<GameOverState>(_data, _score), true );
             }
         }
     }

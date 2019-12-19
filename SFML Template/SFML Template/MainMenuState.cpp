@@ -11,6 +11,7 @@
 #include "MainMenuState.hpp"
 #include "GameState.hpp"
 #include <iostream>
+#include <memory>
 
 namespace QT {
 
@@ -22,18 +23,18 @@ namespace QT {
     // Loading the textures using AssetManager then set them accordingly with the MainMenu components (i.e. background, title, playButton)
     void MainMenuState::init() {
         _data->assets.loadTexture( "Main Menu Background", MAIN_MENU_BACKGROUND_FILEPATH );
-        _data->assets.loadTexture( "Game Title", GAME_TITLE_FILEPATH );
-        _data->assets.loadTexture( "Play Button", PLAY_BUTTON_FILEPATH );
+//        _data->assets.loadTexture( "Game Title", GAME_TITLE_FILEPATH );
+//        _data->assets.loadTexture( "Play Button", PLAY_BUTTON_FILEPATH );
         
-        _background.setTexture( this->_data->assets.getTexture( "Main Menu Background" ));
-        _title.setTexture( this->_data->assets.getTexture( "Game Title" ));
-        _playButton.setTexture( this->_data->assets.getTexture( "Play Button" ));
+        _background.setTexture( _data->assets.getTexture( "Main Menu Background" ));
+//        _title.setTexture( _data->assets.getTexture( "Game Title" ));
+//        _playButton.setTexture( _data->assets.getTexture( "Play Button" ));
         
-        // Set the x,y positions of the title: "FlappyBird" (on top of the background)
-        _title.setPosition( (SCREEN_WIDTH / 2) - (_title.getGlobalBounds().width / 2), _title.getGlobalBounds().height / 2 );
-        
-        // Set the x,y positions of the Play button: all the formulas do just that.
-        _playButton.setPosition( (SCREEN_WIDTH / 2) - (_playButton.getGlobalBounds().width / 2), (SCREEN_HEIGHT / 2) - (_playButton.getGlobalBounds().height / 2) );
+//        // Set the x,y positions of the title: "FlappyBird" (on top of the background)
+//        _title.setPosition( (SCREEN_WIDTH / 2) - (_title.getGlobalBounds().width / 2), _title.getGlobalBounds().height / 2 );
+//
+//        // Set the x,y positions of the Play button: all the formulas do just that.
+//        _playButton.setPosition( (SCREEN_WIDTH / 2) - (_playButton.getGlobalBounds().width / 2), (SCREEN_HEIGHT / 2) - (_playButton.getGlobalBounds().height / 2) );
     }
 
 
@@ -48,10 +49,14 @@ namespace QT {
                 _data->window.close();
             }
             
-            // If user clicks on the sprite (i.e. the Play button), go to game screen
-            if ( _data->input.isSpriteClicked( _playButton, sf::Mouse::Left, _data->window ) ) {
-                // Go to game screen, enter GameState
-                _data->machine.addState( StateRef( new GameState( _data )), true );
+//            // If user clicks on the sprite (i.e. the Play button), go to Game State
+//            if ( _data->input.isSpriteClicked( _playButton, sf::Mouse::Left, _data->window ) ) {
+//                _data->machine.addState( std::make_unique<GameState>( _data ), true );
+//            }
+            
+            // If user clicks on the sprite (i.e. the background), go to Game State
+            if ( _data->input.isSpriteClicked( _background, sf::Mouse::Left, _data->window ) ) {
+                _data->machine.addState( std::make_unique<GameState>( _data ), true );
             }
         }
     }
@@ -66,8 +71,8 @@ namespace QT {
         _data->window.clear();
         
         _data->window.draw( _background );
-        _data->window.draw( _title );
-        _data->window.draw( _playButton );
+//        _data->window.draw( _title );
+//        _data->window.draw( _playButton );
         
         _data->window.display();
     }

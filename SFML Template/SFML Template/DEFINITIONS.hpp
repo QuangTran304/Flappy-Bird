@@ -13,7 +13,8 @@
 
 #define SPLASH_STATE_SHOW_TIME 2.0      // How long do we want the splash to be visible
 #define SPLASH_SCENE_BACKGROUND_FILEPATH "Resources/res/SplashBackground.png"
-#define MAIN_MENU_BACKGROUND_FILEPATH "Resources/res/sky.png"
+//#define MAIN_MENU_BACKGROUND_FILEPATH "Resources/res/sky.png"
+#define MAIN_MENU_BACKGROUND_FILEPATH "Resources/res/sky_start.jpg"
 #define GAME_BACKGROUND_FILEPATH "Resources/res/sky.png"
 #define GAME_OVER_BACKGROUND_FILEPATH "Resources/res/sky.png"
 #define GAME_OVER_TITLE_FILEPATH "Resources/res/Game-Over-Title.png"

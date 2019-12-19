@@ -27,7 +27,11 @@ namespace QT {
 
 
     void HUD::updateScore( int score ) {
-        _scoreText.setString( std::to_string( score ));
+        if ( score == 0 ) {     // Don't display anything when 'score' is 0
+            _scoreText.setString( "" );
+        } else {
+            _scoreText.setString( std::to_string( score ));
+        }
     }
 
 

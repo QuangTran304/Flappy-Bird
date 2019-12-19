@@ -18,7 +18,7 @@
 #include "Flash.hpp"
 #include "HUD.hpp"
 #include <SFML/Audio.hpp>
-
+#include <memory>
 
 namespace QT {
     class GameState: public State {
@@ -34,16 +34,17 @@ namespace QT {
         GameDataRef _data;
         sf::Sprite _background;
         
-        Pipe* pipe;
-        Land* land;
-        Bird* bird;
+        std::unique_ptr<Pipe> pipe;
+        std::unique_ptr<Land> land;
+        std::unique_ptr<Bird> bird;
         Collision collision;    // Not a pointer because we don't need to re-construct it afterwards.
-        Flash* flash;
-        HUD* hud;
+        std::unique_ptr<Flash> flash;
+        std::unique_ptr<HUD> hud;
         
         sf::Clock clock;
         int _gameState;
         int _score;             // Keep track of the user scores
+        
         sf::SoundBuffer _hitSoundBuffer;
         sf::SoundBuffer _wingSoundBuffer;
         sf::SoundBuffer _pointSoundBuffer;
