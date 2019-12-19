@@ -9,45 +9,39 @@
 #include "StateMachine.hpp"
 
 namespace QT {
-    void StateMachine::addState(StateRef newState, bool isReplacing) {
-        this->_isAdding = true;
-        this->_isReplacing = isReplacing;
+
+    void StateMachine::addState( StateRef newState, bool isReplacing ) {
+        _isAdding = true;
+        _isReplacing = isReplacing;
         
-        this->_newState = std::move( newState );
+        _newState = std::move( newState );
     }
+
 
     void StateMachine::removeState() {
-        this->_isRemoving = true;
+        _isRemoving = true;
     }
 
+
     void StateMachine::processStateChanges() {
-        if ( this->_isRemoving  &&  !this->_states.empty() ) {
-            this->_states.pop();
-            
-            if ( !this->_states.empty() ) {
-                this->_states.top()->resume();
-            }
-            
-            this->_isRemoving = false;
+        if ( _isRemoving  &&  !_states.empty() ) {
+            _states.pop();
+            _isRemoving = false;
         }
         
-        if ( this->_isAdding ) {
-            if ( !this->_states.empty() ) {
-                if ( this->_isReplacing ) {
-                    this->_states.pop();
-                } else {
-                    this->_states.top()->pause();
-                }
+        if ( _isAdding ) {
+            if ( !_states.empty()  &&  _isReplacing ) {
+                _states.pop();
             }
             
-            this->_states.push( std::move( this->_newState ) );
-            this->_states.top()->init();
-            this->_isAdding = false;
+            _states.push( std::move( _newState ) );
+            _states.top()->init();
+            _isAdding = false;
         }
     }
 
 
     StateRef& StateMachine::getActiveState() {
-        return this->_states.top();
+        return _states.top();
     }
 }
