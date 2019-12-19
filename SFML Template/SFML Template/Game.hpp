@@ -30,7 +30,7 @@ namespace QT {
         Game( int width, int height, std::string title );
         
     private:
-        const float dt = 1.0f / 60.0f;      // Frame rate: 60 times/ sec
+        const float dt = 1.0f / 60.0f;      // Frame rate: 60 times/ sec    (https://en.wikipedia.org/wiki/Frame_rate)
         sf::Clock _clock;                   // Measure the elapsed time. Handle the frame rate.
         GameDataRef _data = std::make_shared<GameData>();
         
