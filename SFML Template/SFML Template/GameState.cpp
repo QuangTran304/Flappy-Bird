@@ -22,6 +22,19 @@ namespace QT {
     */
     void GameState::init() {
 //        std::cout << "Init() Game State" << std::endl;
+        if ( !_hitSoundBuffer.loadFromFile( HIT_SOUND_FILEPATH )) {
+            std::cout << "Error loading HIT sound effect" << std::endl;
+        }
+        if ( !_wingSoundBuffer.loadFromFile( WING_SOUND_FILEPATH )) {
+            std::cout << "Error loading WING sound effect" << std::endl;
+        }
+        if ( !_pointSoundBuffer.loadFromFile( POINT_SOUND_FILEPATH )) {
+            std::cout << "Error loading POINT sound effect" << std::endl;
+        }
+        
+        _hitSound.setBuffer( _hitSoundBuffer );
+        _wingSound.setBuffer( _wingSoundBuffer );
+        _pointSound.setBuffer( _pointSoundBuffer );
         
         _data->assets.loadTexture( "Game Background", GAME_BACKGROUND_FILEPATH );
         _data->assets.loadTexture( "Pipe Up", PIPE_UP_FILEPATH );
@@ -59,6 +72,7 @@ namespace QT {
                 if ( _gameState  !=  GameStates::eGAMEOVER ) {
                     _gameState = GameStates::ePLAYING;
                     bird->tap();
+                    _wingSound.play();
                 }
             }
         }
@@ -100,6 +114,7 @@ namespace QT {
                 if ( collision.checkSpriteCollision( bird->getSprite(), 0.7f, landSprites.at(i), 1.0f )) {
                     _gameState = GameStates::eGAMEOVER;
                     clock.restart();        // As the game is over, the clock is no longer used to spawning the pipes.
+                    _hitSound.play();
                 }
             }
             
@@ -117,6 +132,7 @@ namespace QT {
                 if ( collision.checkSpriteCollision( bird->getSprite(), 0.625f, pipeSprites.at(i), 1.0f )) {
                     _gameState = GameStates::eGAMEOVER;
                     clock.restart();        // As the game is over, the clock is no longer used to spawning the pipes.
+                    _hitSound.play();
                 }
             }
             
@@ -130,6 +146,7 @@ namespace QT {
 //                        std::cout << "Current score: " << _score << std::endl;
                         hud->updateScore( _score );
                         scoringSprites.erase( scoringSprites.begin() + i );
+                        _pointSound.play();
                     }
                 }
             }

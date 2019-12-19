@@ -17,6 +17,7 @@
 #include "Collision.hpp"
 #include "Flash.hpp"
 #include "HUD.hpp"
+#include <SFML/Audio.hpp>
 
 
 namespace QT {
@@ -43,6 +44,13 @@ namespace QT {
         sf::Clock clock;
         int _gameState;
         int _score;             // Keep track of the user scores
+        sf::SoundBuffer _hitSoundBuffer;
+        sf::SoundBuffer _wingSoundBuffer;
+        sf::SoundBuffer _pointSoundBuffer;
+        
+        sf::Sound _hitSound;
+        sf::Sound _wingSound;
+        sf::Sound _pointSound;
     };
 }
 
