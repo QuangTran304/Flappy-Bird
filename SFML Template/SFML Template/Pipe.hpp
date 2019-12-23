@@ -21,7 +21,7 @@ namespace QT {
         void drawPipes();
         void spawnBottomPipe();
         void spawnTopPipe();
-        void spawnInvisiblePipe();
+//        void spawnInvisiblePipe();
         void spawnScoringPipe();       // Used to detect if the bird has gone between 2 pipes (earn scores)
         void movePipes( float dt );
         void randomisePipeOffset();

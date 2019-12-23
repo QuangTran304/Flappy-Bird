@@ -37,14 +37,14 @@ namespace QT {
     }
 
 
-    void Pipe::spawnInvisiblePipe() {
-        // These invisible pipes are used to fix a screen problem: lag issue or movement issue
-        sf::Sprite sprite( _data->assets.getTexture( "Pipe Up" ));      // Doesn't matter which pipe
-        sprite.setPosition( _data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height );
-        
-        sprite.setColor( sf::Color( 0,0,0,0 ));
-        pipeSprites.push_back( sprite );
-    }
+//    void Pipe::spawnInvisiblePipe() {
+//        // These invisible pipes are used to fix a screen problem: lag issue or movement issue
+//        sf::Sprite sprite( _data->assets.getTexture( "Pipe Up" ));      // Doesn't matter which pipe
+//        sprite.setPosition( _data->window.getSize().x, _data->window.getSize().y - sprite.getGlobalBounds().height );
+//
+//        sprite.setColor( sf::Color( 0,0,0,0 ));
+//        pipeSprites.push_back( sprite );
+//    }
 
 
     void Pipe::spawnScoringPipe() {
@@ -94,7 +94,7 @@ namespace QT {
 
 
     void Pipe::randomisePipeOffset() {
-        _pipeSpawnY_offSet = rand() % ( _landHeight + 1 );
+        _pipeSpawnY_offSet = rand() % _landHeight + 1;
     }
 
 

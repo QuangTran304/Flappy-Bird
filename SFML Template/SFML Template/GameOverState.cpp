@@ -18,12 +18,8 @@ namespace QT {
         
     }
 
-    /*
-        Loading the texture using AssetManager
-    */
+
     void GameOverState::init() {
-//        std::cout << "Game-over State" << std::endl;
-        
         std::fstream readFile;
         readFile.open( HIGH_SCORE_FILE_PATH );
         if ( readFile.is_open() ) {
@@ -62,7 +58,7 @@ namespace QT {
         _gameOverTitle.setPosition( (_data->window.getSize().x / 2) - (_gameOverTitle.getGlobalBounds().width / 2)  ,  _gameOverContainer.getPosition().y - (_gameOverTitle.getGlobalBounds().height * 1.2) );
         _retryButton.setPosition( (_data->window.getSize().x / 2) - (_retryButton.getGlobalBounds().width / 2)  ,  _gameOverContainer.getPosition().y  +  _gameOverContainer.getGlobalBounds().height  +  (_retryButton.getGlobalBounds().height * 0.2) );
     
-        
+
         // All the float values in the formula are experimenting value => Test to find the best ones.
         _scoreText.setFont( _data->assets.getFont( "Flappy Font" ));
         _scoreText.setString( std::to_string( _score ));
@@ -93,6 +89,7 @@ namespace QT {
         _medal.setPosition( 175, 465 );
     }
 
+
     void GameOverState::handleInput() {
         sf::Event event;
         
@@ -102,14 +99,17 @@ namespace QT {
             }
             
             if ( _data->input.isSpriteClicked( _retryButton, sf::Mouse::Left, _data->window )) {
-                _data->machine.addState( StateRef( new GameState(_data)), true );
+//                _data->machine.addState( StateRef( new GameState(_data)), true );
+                _data->machine.addState( std::make_unique<GameState>( _data ), true );
             }
         }
     }
 
+
     void GameOverState::update( float dt ) {
 
     }
+
 
     void GameOverState::draw( float dt ) {
         _data->window.clear();

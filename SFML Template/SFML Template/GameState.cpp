@@ -89,7 +89,7 @@ namespace QT {
             if ( clock.getElapsedTime().asSeconds()  >  PIPE_SPAWN_FREQUENCY ) {
                 pipe->randomisePipeOffset();
                 
-                pipe->spawnInvisiblePipe();
+//                pipe->spawnInvisiblePipe();
                 pipe->spawnBottomPipe();
                 pipe->spawnTopPipe();
                 pipe->spawnScoringPipe();
