@@ -4,7 +4,7 @@ This is my desktop implementation of the famous `Flappy Bird` using the `C++` la
 
 The main purpose of this project is to familiarize myself with the structures of a "quite" complex game. It also helps improving my knowledge in making a game/ app in general.
 
----
+
 ## Screenshots
 1. Splash Screen 
 
@@ -23,7 +23,7 @@ The main purpose of this project is to familiarize myself with the structures of
 
     ![GameOver Screen](https://github.com/QuangTran304/Flappy-Bird/blob/master/Screen%20Shot%202020-01-05%20at%204.49.07%20PM.png)
 
----
+
 ## How the game is designed
 The game is designed based on the [states machine](https://en.wikipedia.org/wiki/Finite-state_machine) model. 
 
@@ -50,7 +50,7 @@ Every state transitions, add/ remove a state, active state are processed by the 
 * If bird crashes, move to `GameOver State`
 * Back to `Game State` if replay is clicked.
 
----
+
 ## State class
 ```C++
     class State {
@@ -62,7 +62,7 @@ Every state transitions, add/ remove a state, active state are processed by the 
     };
 ```
 
----
+
 ## Issues
 * The pipes are still quite far from each other.
 * Pipe heights do not change much.
