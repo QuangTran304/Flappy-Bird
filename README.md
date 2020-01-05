@@ -4,6 +4,7 @@ This is my desktop implementation of the famous `Flappy Bird` using the `C++` la
 
 The main purpose of this project is to familiarize myself with the structures of a "quite" complex game. It also helps improving my knowledge in making a game/ app in general.
 
+---
 ## Screenshots
 1. Splash Screen 
 
@@ -22,19 +23,23 @@ The main purpose of this project is to familiarize myself with the structures of
 
     ![GameOver Screen](https://github.com/QuangTran304/Flappy-Bird/blob/master/Screen%20Shot%202020-01-05%20at%204.49.07%20PM.png)
 
+---
 ## How the game is designed
 The game is designed based on the [states machine](https://en.wikipedia.org/wiki/Finite-state_machine) model. 
 
-### Inputs
+> A finite-state machine (FSM) or finite-state automaton (FSA, plural: automata), finite automaton, or simply a state machine, is a mathematical model of computation. It is an abstract machine that can be in exactly one of a finite number of states at any given time. The FSM can change from one state to another in response to some external inputs and/or a condition is satisfied; the change from one state to another is called a transition.[1] An FSM is defined by a list of its states, its initial state, and the conditions for each transition.
+
+
+#### Inputs
 Inputs (i.e. clicks) are handled by the `InputManager` class.
 
-### Assets
+#### Assets
 All assets (i.e. textures and fonts) are handled using the `AssetManager` class.
 
-### States
+#### States
 Every state transitions, add/ remove a state, active state are processed by the `StateMachine` class (Different from `State` class).
 
-### Main game loop
+#### Main game loop
 
 * `Game` object is created.
 * Setup a window - video mode.
@@ -45,7 +50,7 @@ Every state transitions, add/ remove a state, active state are processed by the 
 * If bird crashes, move to `GameOver State`
 * Back to `Game State` if replay is clicked.
 
-
+---
 ## State class
 ```C++
     class State {
@@ -57,6 +62,7 @@ Every state transitions, add/ remove a state, active state are processed by the 
     };
 ```
 
+---
 ## Issues
 * The pipes are still quite far from each other.
 * Pipe heights do not change much.
